@@ -1,0 +1,18 @@
+{
+	init: function() {
+		// Try changing the background color and refreshing your app on your device
+		var data = [
+			{ title: 'Test', backgroundColor: '#222', color: '#eee' },
+			{ title: 'Test2' },
+			{ title: 'Test3' },
+			{ title: 'Test4' }
+		];
+		
+		var table = Ti.UI.createTableView({
+			data: data
+		});
+		
+		Ti.UI.currentWindow.add(table);
+
+	}
+}
