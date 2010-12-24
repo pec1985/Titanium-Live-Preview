@@ -6,19 +6,28 @@
 var initial_tabs = Ti.UI.createTabGroup();
 
 // create initial window and add a button to navigate to your externally created window
-var win = Ti.UI.createWindow({title:'Your App'});
-win.hideTabBar();
+var win1 = Ti.UI.createWindow({title:'Your App'});
 var button = Ti.UI.createButton({left:20,right:20,height:80,title:'Open'});
-win.add(button);
+win1.add(button);
 
 // Form window & tab
-var window_tab = Ti.UI.createTab({  
+var tab1 = Ti.UI.createTab({  
     icon: 'images/icons/117-todo@2x.png',
-    title: 'window',
-    window: win
+    title: 'remote',
+    window: win1
 });
+
+var win2 = Ti.UI.createWindow({title:'Your App',url:'edit.js'});
+var tab2 = Ti.UI.createTab({
+    icon: 'images/icons/117-todo@2x.png',
+    title: 'local',
+	window:win2
+});
+
+
 // Add the tabs to the window
-initial_tabs.addTab(window_tab);
+initial_tabs.addTab(tab1);
+initial_tabs.addTab(tab2);
 
 initial_tabs.open();
 
@@ -29,7 +38,7 @@ button.addEventListener('click',function(){
 		url: 'init.js',
 		title: 'Window'
 	});
-	window_tab.open(window);
+	tab1.open(window);
 });
 
 // create an instance of all of the elements so that there are no errors later.
@@ -70,3 +79,4 @@ a=Ti.UI.createView;
 a=Ti.UI.createWebView;
 a=Ti.UI.createWindow;
 a=null;
+
